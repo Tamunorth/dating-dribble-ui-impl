@@ -6,6 +6,7 @@ class User {
   final String videoUrl;
   final String location;
   final String imageUrl;
+  bool liked = false;
 
   User({
     required this.name,
@@ -13,6 +14,7 @@ class User {
     required this.videoUrl,
     required this.imageUrl,
     required this.location,
+    this.liked = false,
   });
 }
 

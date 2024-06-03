@@ -9,6 +9,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:uicons/uicons.dart';
 import 'package:video_player/video_player.dart';
 
@@ -25,6 +26,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Dating Dribble UI',
       theme: ThemeData(
+        textTheme: GoogleFonts.geoTextTheme(),
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
@@ -303,12 +305,13 @@ class _UserGridItemState extends State<UserGridItem>
                         return InkWell(
                           onTap: () {
                             setState2(() {
+                              widget.user.liked = !widget.user.liked;
                               liked = !liked;
                             });
                           },
                           child: IconSquare(
                             size: 12,
-                            icon: liked
+                            icon: widget.user.liked
                                 ? Icons.favorite_rounded
                                 : Icons.favorite_border_rounded,
                             color: Colors.white,

@@ -35,7 +35,7 @@ class _ProfilePageState extends State<ProfilePage>
   final profileAnimationDuration = Duration(milliseconds: 700);
   final profileCurve = Curves.easeInOut;
 
-  bool liked = false;
+  // bool liked = false;
   bool showControls = true;
 
   @override
@@ -222,12 +222,12 @@ class _ProfilePageState extends State<ProfilePage>
                             return InkWell(
                               onTap: () {
                                 setState2(() {
-                                  liked = !liked;
+                                  widget.user.liked = !widget.user.liked;
                                 });
                               },
                               child: IconSquare(
                                 size: 20,
-                                icon: liked
+                                icon: widget.user.liked
                                     ? Icons.favorite_rounded
                                     : Icons.favorite_border_rounded,
                                 color: Colors.white,

@@ -316,7 +316,7 @@ class _PageViewItemState extends State<PageViewItem>
 
   String? thumbnail;
 
-  bool liked = false;
+  // bool liked = false;
 
   @override
   void initState() {
@@ -444,12 +444,12 @@ class _PageViewItemState extends State<PageViewItem>
                             return InkWell(
                               onTap: () {
                                 setState2(() {
-                                  liked = !liked;
+                                  widget.user.liked = !widget.user.liked;
                                 });
                               },
                               child: IconSquare(
                                 size: 20,
-                                icon: liked
+                                icon: widget.user.liked
                                     ? Icons.favorite_rounded
                                     : Icons.favorite_border_rounded,
                                 color: Colors.white,
